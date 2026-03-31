@@ -272,8 +272,21 @@
             margin-bottom: 3rem;
         }
 
-        .about-text {
+        /* About Grid - Foto e Texto lado a lado */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: flex-start;
             margin-bottom: 3rem;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
         }
 
         .about-text h3 {
@@ -282,7 +295,7 @@
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 1rem;
-            margin-top: 1.5rem;
+            margin-top: 0;
         }
 
         .about-text p {
@@ -291,18 +304,10 @@
             margin-bottom: 1rem;
         }
 
-        .about-image {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            object-fit: cover;
-        }
-
+        /* Contact Grid - 2 colunas, 2 linhas */
         .contact-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
         }
 
@@ -311,6 +316,16 @@
             background: var(--light);
             border-left: 4px solid var(--accent);
             border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .contact-item:nth-child(2) {
@@ -366,6 +381,7 @@
             border-top: 4px solid var(--accent);
             border-radius: 2px;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .service-card:nth-child(2) {
@@ -445,6 +461,13 @@
             border-radius: 2px;
             display: flex;
             gap: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .deliverable-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .deliverable-item:nth-child(2n) {
@@ -466,6 +489,20 @@
             color: var(--text-dark);
             font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        .deliverable-description {
+            display: none;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .deliverable-item.active .deliverable-description {
+            display: block;
         }
 
         /* Case Study Section */
@@ -623,6 +660,60 @@
             line-height: 1.6;
         }
 
+        /* Not Included Section */
+        .not-included {
+            padding: 5rem 5%;
+            background: var(--white);
+        }
+
+        .not-included-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .not-included-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .not-included-item {
+            padding: 1.5rem;
+            background: var(--light);
+            border-left: 4px solid #999;
+            border-radius: 2px;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .not-included-icon {
+            color: #999;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .not-included-text {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .not-included-note {
+            background: linear-gradient(135deg, rgba(233, 30, 99, 0.05), rgba(107, 63, 160, 0.05));
+            padding: 2rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 2px;
+            margin-top: 2rem;
+        }
+
+        .not-included-note p {
+            color: var(--text-dark);
+            font-weight: 600;
+            line-height: 1.8;
+        }
+
         /* CTA Section */
         .cta-section {
             padding: 5rem 5%;
@@ -730,8 +821,16 @@
                 font-size: 2rem;
             }
 
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
             .about-image {
                 max-width: 100%;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -758,7 +857,7 @@
             <p class="hero-subtitle">Especialista em Marketing Digital, Performance & Conteúdo Estratégico</p>
             <p class="hero-tagline">Transformando marcas através de estratégia, criatividade e dados. +13 anos unindo design, estratégia e resultados. Entrego resultados mensuráveis que impulsionam o crescimento do seu negócio.</p>
             <div class="hero-cta">
-                <a href="#contact" class="btn-primary">Vamos Conversar</a>
+                <a href="https://wa.me/5519987303049" class="btn-primary">Vamos Conversar</a>
                 <a href="#services" class="btn-secondary">Conhecer Serviços</a>
             </div>
         </div>
@@ -794,36 +893,38 @@
         <h2 class="section-title">Quem Sou Eu</h2>
         <div class="section-divider"></div>
         
-        <div class="about-text">
+        <div class="about-grid">
             <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663427497719/DhtwZqZTOcyIuhfa.jpg" alt="Tabata Borges" class="about-image">
             
-            <h3>Profissional de Marketing Digital</h3>
-            <p>Com <strong>13+ anos de experiência em design gráfico aplicado ao marketing digital</strong>, sou especialista em transformar marcas através de estratégia, criatividade e dados.</p>
-            
-            <h3>Expertise</h3>
-            <p>Especialista em gestão de redes sociais, tráfego pago, estratégia de conteúdo, design visual e análise de performance. Formação em design gráfico com expertise em comunicação visual.</p>
-            
-            <h3>Aprendizado Contínuo</h3>
-            <p>Cursando Marketing com foco em estratégia digital e comportamento do consumidor. Sempre buscando aplicar as tendências mais recentes do mercado.</p>
+            <div class="about-text">
+                <h3>Profissional de Marketing Digital</h3>
+                <p>Com <strong>13+ anos de experiência em design gráfico aplicado ao marketing digital</strong>, sou especialista em transformar marcas através de estratégia, criatividade e dados.</p>
+                
+                <h3>Expertise</h3>
+                <p>Especialista em gestão de redes sociais, tráfego pago, estratégia de conteúdo, design visual e análise de performance. Formação em design gráfico com expertise em comunicação visual.</p>
+                
+                <h3>Aprendizado Contínuo</h3>
+                <p>Cursando Marketing com foco em estratégia digital e comportamento do consumidor. Sempre buscando aplicar as tendências mais recentes do mercado.</p>
+            </div>
         </div>
 
         <div class="contact-info">
-            <div class="contact-item">
+            <a href="https://instagram.com/tabataborges.mkt" target="_blank" class="contact-item">
                 <div class="contact-label">📷 Instagram</div>
                 <div class="contact-value">@tabataborges.mkt</div>
-            </div>
-            <div class="contact-item">
+            </a>
+            <a href="https://linkedin.com/in/tabataiborges" target="_blank" class="contact-item">
                 <div class="contact-label">💼 LinkedIn</div>
                 <div class="contact-value">linkedin.com/in/tabataiborges</div>
-            </div>
-            <div class="contact-item">
+            </a>
+            <a href="https://wa.me/5519987303049" target="_blank" class="contact-item">
                 <div class="contact-label">📱 WhatsApp</div>
                 <div class="contact-value">+55 (19) 98730.3049</div>
-            </div>
-            <div class="contact-item">
+            </a>
+            <a href="mailto:tabataborgesmkt@gmail.com" class="contact-item">
                 <div class="contact-label">📧 Email</div>
                 <div class="contact-value">tabataborgesmkt@gmail.com</div>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -834,32 +935,32 @@
             <div class="section-divider"></div>
 
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card" onclick="scrollToDeliverable('trafego')">
                     <h3>📊 Gestão de Tráfego Pago</h3>
                     <p>Estruturo, gerencio e otimizo campanhas de anúncios pagos para alcançar o público certo, aumentar visibilidade e gerar leads, vendas e oportunidades de negócio.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" onclick="scrollToDeliverable('social')">
                     <h3>📱 Social Media</h3>
                     <p>Gerencio sua presença digital nas redes sociais, criando consistência, fortalecendo relacionamento com o público e aumentando engajamento e reconhecimento da marca.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" onclick="scrollToDeliverable('estrategia')">
                     <h3>🎯 Estratégia e Planejamento</h3>
                     <p>Defino direcionamentos claros para comunicação e presença digital com base em análise de mercado, público-alvo e objetivos do negócio.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" onclick="scrollToDeliverable('design')">
                     <h3>🎨 Design e Conteúdo Visual</h3>
                     <p>Desenvolvimento de peças visuais estratégicas e atrativas, alinhadas à identidade da marca. Criação de artes, edição de vídeos e adaptação de conteúdos.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" onclick="scrollToDeliverable('copy')">
                     <h3>✍️ Copywriting</h3>
                     <p>Criação de mensagens persuasivas e estratégicas, capazes de atrair, engajar e conduzir o público à ação. Legendas, copies para vendas e roteiros.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" onclick="scrollToDeliverable('analise')">
                     <h3>📈 Análise e Performance</h3>
                     <p>Monitoramento e interpretação de dados das ações de marketing, identificando oportunidades de melhoria e otimizações estratégicas contínuas.</p>
                 </div>
@@ -874,203 +975,316 @@
             <div class="section-divider"></div>
 
             <!-- Gestão de Tráfego Pago -->
-            <div class="service-deliverables">
+            <div class="service-deliverables" id="trafego">
                 <h3 class="deliverables-title">📊 Gestão de Tráfego Pago</h3>
                 <div class="deliverables-list">
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Planejamento Estratégico de Campanhas</div>
+                        <div>
+                            <div class="deliverable-text">Planejamento Estratégico de Campanhas</div>
+                            <div class="deliverable-description">Estruturação completa da estratégia de campanhas com base em objetivos e público-alvo.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Criação e Configuração de Campanhas</div>
+                        <div>
+                            <div class="deliverable-text">Criação e Configuração de Campanhas</div>
+                            <div class="deliverable-description">Criação e configuração de campanhas em Meta Ads e/ou Google Ads com otimizações iniciais.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Definição de Público e Segmentações</div>
+                        <div>
+                            <div class="deliverable-text">Definição de Público e Segmentações</div>
+                            <div class="deliverable-description">Segmentação estratégica de públicos para maximizar relevância e reduzir custos.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Criação de Copies para Anúncios</div>
+                        <div>
+                            <div class="deliverable-text">Criação de Copies para Anúncios</div>
+                            <div class="deliverable-description">Desenvolvimento de textos persuasivos e criativos para anúncios pagos.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Acompanhamento e Otimização Semanal</div>
+                        <div>
+                            <div class="deliverable-text">Acompanhamento e Otimização Semanal</div>
+                            <div class="deliverable-description">Monitoramento contínuo e otimizações semanais das campanhas para melhor performance.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Testes A/B de Criativos e Públicos</div>
+                        <div>
+                            <div class="deliverable-text">Testes A/B de Criativos e Públicos</div>
+                            <div class="deliverable-description">Realização de testes A/B para identificar melhores criativos e segmentações.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Relatório de Desempenho Mensal</div>
+                        <div>
+                            <div class="deliverable-text">Relatório de Desempenho Mensal</div>
+                            <div class="deliverable-description">Análise detalhada de métricas e KPIs com insights e recomendações.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Reunião Estratégica Mensal</div>
+                        <div>
+                            <div class="deliverable-text">Reunião Estratégica Mensal</div>
+                            <div class="deliverable-description">Alinhamento mensal para discutir resultados, estratégias e próximos passos.</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Social Media -->
-            <div class="service-deliverables">
+            <div class="service-deliverables" id="social">
                 <h3 class="deliverables-title">📱 Social Media</h3>
                 <div class="deliverables-list">
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Planejamento de conteúdo mensal</div>
+                        <div>
+                            <div class="deliverable-text">Planejamento de conteúdo mensal</div>
+                            <div class="deliverable-description">Definição de temas, datas e tipos de conteúdo para o mês.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Criação de calendário editorial</div>
+                        <div>
+                            <div class="deliverable-text">Criação de calendário editorial</div>
+                            <div class="deliverable-description">Organização visual de todos os posts agendados para o mês.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Publicação e agendamento de posts</div>
+                        <div>
+                            <div class="deliverable-text">Publicação e agendamento de posts</div>
+                            <div class="deliverable-description">Criação e agendamento de posts nas redes sociais conforme planejamento.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Gestão de stories (conforme pacote)</div>
+                        <div>
+                            <div class="deliverable-text">Gestão de stories</div>
+                            <div class="deliverable-description">Criação e publicação de stories conforme pacote contratado.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Monitoramento básico de interações</div>
+                        <div>
+                            <div class="deliverable-text">Monitoramento básico de interações</div>
+                            <div class="deliverable-description">Acompanhamento de comentários e mensagens com respostas estratégicas.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Organização do feed (visual e estratégico)</div>
+                        <div>
+                            <div class="deliverable-text">Organização do feed</div>
+                            <div class="deliverable-description">Estruturação visual e estratégica do feed para melhor apresentação da marca.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Relatório mensal de desempenho</div>
+                        <div>
+                            <div class="deliverable-text">Relatório mensal de desempenho</div>
+                            <div class="deliverable-description">Análise de métricas, engajamento e crescimento mensal.</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Estratégia e Planejamento -->
-            <div class="service-deliverables">
+            <div class="service-deliverables" id="estrategia">
                 <h3 class="deliverables-title">🎯 Estratégia e Planejamento</h3>
                 <div class="deliverables-list">
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Diagnóstico da presença digital</div>
+                        <div>
+                            <div class="deliverable-text">Diagnóstico da presença digital</div>
+                            <div class="deliverable-description">Análise completa da presença digital atual da marca.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Análise de concorrência</div>
+                        <div>
+                            <div class="deliverable-text">Análise de concorrência</div>
+                            <div class="deliverable-description">Estudo detalhado dos concorrentes e suas estratégias.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Definição de persona e público-alvo</div>
+                        <div>
+                            <div class="deliverable-text">Definição de persona e público-alvo</div>
+                            <div class="deliverable-description">Criação de personas detalhadas e segmentação do público.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Definição de posicionamento</div>
+                        <div>
+                            <div class="deliverable-text">Definição de posicionamento e tom de voz</div>
+                            <div class="deliverable-description">Estabelecimento de como a marca se posiciona e comunica.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Definição de tom de voz</div>
+                        <div>
+                            <div class="deliverable-text">Planejamento estratégico de conteúdo</div>
+                            <div class="deliverable-description">Definição de temas, pilares e estratégia de conteúdo.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Planejamento estratégico de conteúdo</div>
+                        <div>
+                            <div class="deliverable-text">Estruturação de funil de marketing</div>
+                            <div class="deliverable-description">Criação de funil com estratégias para cada etapa da jornada.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Estruturação de funil de marketing</div>
+                        <div>
+                            <div class="deliverable-text">Plano de ação com direcionamento estratégico</div>
+                            <div class="deliverable-description">Documento com ações concretas e timeline de implementação.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Plano de ação com direcionamento estratégico</div>
-                    </div>
-                    <div class="deliverable-item">
-                        <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Reunião de apresentação e alinhamento</div>
+                        <div>
+                            <div class="deliverable-text">Reunião de apresentação e alinhamento</div>
+                            <div class="deliverable-description">Apresentação da estratégia e alinhamento com o cliente.</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Design e Conteúdo Visual -->
-            <div class="service-deliverables">
+            <div class="service-deliverables" id="design">
                 <h3 class="deliverables-title">🎨 Design e Conteúdo Visual</h3>
                 <div class="deliverables-list">
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Criação de artes para feed (posts estáticos e carrosséis)</div>
+                        <div>
+                            <div class="deliverable-text">Criação de artes para feed</div>
+                            <div class="deliverable-description">Posts estáticos e carrosséis com design estratégico e atrativo.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Desenvolvimento de identidade visual para redes sociais</div>
+                        <div>
+                            <div class="deliverable-text">Desenvolvimento de identidade visual</div>
+                            <div class="deliverable-description">Criação de templates e padrões visuais para as redes sociais.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Edição de vídeos para Reels</div>
+                        <div>
+                            <div class="deliverable-text">Edição de vídeos para Reels</div>
+                            <div class="deliverable-description">Edição profissional de vídeos curtos e dinâmicos.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Criação de capas e thumbnails</div>
+                        <div>
+                            <div class="deliverable-text">Criação de capas e thumbnails</div>
+                            <div class="deliverable-description">Design de capas para vídeos e thumbnails atrativas.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Adaptação de conteúdos para diferentes formatos</div>
+                        <div>
+                            <div class="deliverable-text">Adaptação de conteúdos para diferentes formatos</div>
+                            <div class="deliverable-description">Reformatação de conteúdo para diferentes plataformas e tamanhos.</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Copywriting -->
-            <div class="service-deliverables">
+            <div class="service-deliverables" id="copy">
                 <h3 class="deliverables-title">✍️ Copywriting</h3>
                 <div class="deliverables-list">
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Criação de legendas estratégicas</div>
+                        <div>
+                            <div class="deliverable-text">Criação de legendas estratégicas</div>
+                            <div class="deliverable-description">Legendas persuasivas e alinhadas com a estratégia da marca.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Desenvolvimento de copies para vendas</div>
+                        <div>
+                            <div class="deliverable-text">Desenvolvimento de copies para vendas</div>
+                            <div class="deliverable-description">Textos persuasivos focados em conversão e vendas.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Roteiros para vídeos (Reels)</div>
+                        <div>
+                            <div class="deliverable-text">Roteiros para vídeos</div>
+                            <div class="deliverable-description">Scripts e roteiros para Reels e vídeos de marketing.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Escrita de textos persuasivos para campanhas</div>
+                        <div>
+                            <div class="deliverable-text">Escrita de textos persuasivos para campanhas</div>
+                            <div class="deliverable-description">Textos estratégicos para campanhas de marketing e anúncios.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Definição de CTA (chamada para ação)</div>
+                        <div>
+                            <div class="deliverable-text">Definição de CTA</div>
+                            <div class="deliverable-description">Criação de chamadas para ação eficazes e alinhadas.</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Análise e Performance -->
-            <div class="service-deliverables">
+            <div class="service-deliverables" id="analise">
                 <h3 class="deliverables-title">📈 Análise e Performance</h3>
                 <div class="deliverables-list">
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Monitoramento de métricas e KPIs</div>
+                        <div>
+                            <div class="deliverable-text">Monitoramento de métricas e KPIs</div>
+                            <div class="deliverable-description">Acompanhamento contínuo de indicadores de desempenho.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Análise de desempenho de conteúdos e campanhas</div>
+                        <div>
+                            <div class="deliverable-text">Análise de desempenho de conteúdos</div>
+                            <div class="deliverable-description">Avaliação detalhada de como cada conteúdo se comporta.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Identificação de oportunidades de melhoria</div>
+                        <div>
+                            <div class="deliverable-text">Identificação de oportunidades de melhoria</div>
+                            <div class="deliverable-description">Análise estratégica para identificar pontos de otimização.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Otimizações estratégicas contínuas</div>
+                        <div>
+                            <div class="deliverable-text">Otimizações estratégicas contínuas</div>
+                            <div class="deliverable-description">Implementação de melhorias baseadas em dados e insights.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Relatório mensal detalhado</div>
+                        <div>
+                            <div class="deliverable-text">Relatório mensal detalhado</div>
+                            <div class="deliverable-description">Análise completa de resultados com recomendações.</div>
+                        </div>
                     </div>
-                    <div class="deliverable-item">
+                    <div class="deliverable-item" onclick="toggleDescription(this)">
                         <div class="deliverable-check">✓</div>
-                        <div class="deliverable-text">Reunião de alinhamento e performance</div>
+                        <div>
+                            <div class="deliverable-text">Reunião de alinhamento e performance</div>
+                            <div class="deliverable-description">Discussão de resultados e planejamento dos próximos passos.</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1188,10 +1402,65 @@
         </div>
     </section>
 
+    <!-- Not Included Section -->
+    <section class="not-included">
+        <div class="not-included-container">
+            <h2 class="section-title">O Que Não Está Incluso</h2>
+            <div class="section-divider"></div>
+
+            <div class="not-included-list">
+                <div class="not-included-item">
+                    <div class="not-included-icon">✗</div>
+                    <div class="not-included-text">Impressão de materiais gráficos</div>
+                </div>
+                <div class="not-included-item">
+                    <div class="not-included-icon">✗</div>
+                    <div class="not-included-text">Gestão de crises ou atendimento avançado ao cliente (SAC)</div>
+                </div>
+                <div class="not-included-item">
+                    <div class="not-included-icon">✗</div>
+                    <div class="not-included-text">Serviços fora do horário comercial</div>
+                </div>
+                <div class="not-included-item">
+                    <div class="not-included-icon">✗</div>
+                    <div class="not-included-text">Verba de anúncios (investimento em mídia)</div>
+                </div>
+                <div class="not-included-item">
+                    <div class="not-included-icon">✗</div>
+                    <div class="not-included-text">Gestão de WhatsApp ou equipe de vendas</div>
+                </div>
+                <div class="not-included-item">
+                    <div class="not-included-icon">✗</div>
+                    <div class="not-included-text">Quantidade extra de posts além do contratado</div>
+                </div>
+                <div class="not-included-item">
+                    <div class="not-included-icon">✗</div>
+                    <div class="not-included-text">Alterações ilimitadas (limite estabelecido na contratação)</div>
+                </div>
+                <div class="not-included-item">
+                    <div class="not-included-icon">✗</div>
+                    <div class="not-included-text">Criação de materiais fora do escopo (banners impressos, embalagens)</div>
+                </div>
+                <div class="not-included-item">
+                    <div class="not-included-icon">✗</div>
+                    <div class="not-included-text">Desenvolvimento de site ou landing page completa</div>
+                </div>
+                <div class="not-included-item">
+                    <div class="not-included-icon">✗</div>
+                    <div class="not-included-text">Criação de naming (nome de marca/empresa)</div>
+                </div>
+            </div>
+
+            <div class="not-included-note">
+                <p>💡 Demandas não previstas neste escopo poderão ser atendidas mediante orçamento adicional. Vamos conversar sobre suas necessidades específicas!</p>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section" id="contact">
         <h2>Pronto para Impulsionar Seus Resultados?</h2>
-        <p>Com 13+ anos de experiência em design estratégico aplicado ao marketing digital, posso ajudar sua marca a crescer de forma estratégica e mensurável. Entre em contato para conversarmos!</p>
+        <p>Com +13 anos de experiência em design estratégico aplicado ao marketing digital, posso ajudar sua marca a crescer de forma estratégica e mensurável. Entre em contato para conversarmos!</p>
         <a href="https://wa.me/5519987303049" class="btn-primary">Fale Comigo no WhatsApp</a>
     </section>
 
@@ -1222,5 +1491,20 @@
             <p>&copy; 2026 Tabata Borges. Todos os direitos reservados. | Especialista em Marketing Digital</p>
         </div>
     </footer>
+
+    <script>
+        // Função para rolar até os entregáveis de um serviço específico
+        function scrollToDeliverable(serviceId) {
+            const element = document.getElementById(serviceId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Função para abrir/fechar descrição dos entregáveis
+        function toggleDescription(element) {
+            element.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
