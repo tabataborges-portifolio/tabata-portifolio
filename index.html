@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabata Borges - Prestadora de Serviços de Marketing Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #6B3FA0;
+            --accent: #E91E63;
+            --light: #F5F5F5;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border: #E0E0E0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--secondary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.02) 0%, rgba(107, 63, 160, 0.05) 100%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(233, 30, 99, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--secondary);
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--secondary);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 5rem 5%;
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            margin-bottom: 3rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-text h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            padding: 1.5rem;
+            background: var(--light);
+            border-left: 4px solid var(--accent);
+            border-radius: 2px;
+        }
+
+        .contact-item:nth-child(2) {
+            border-left-color: var(--secondary);
+        }
+
+        .contact-item:nth-child(3) {
+            border-left-color: var(--secondary);
+        }
+
+        .contact-item:nth-child(4) {
+            border-left-color: var(--accent);
+        }
+
+        .contact-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 5%;
+            background: var(--light);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-top: 4px solid var(--accent);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:nth-child(2) {
+            border-top-color: var(--secondary);
+        }
+
+        .service-card:nth-child(3) {
+            border-top-color: var(--accent);
+        }
+
+        .service-card:nth-child(4) {
+            border-top-color: var(--secondary);
+        }
+
+        .service-card:nth-child(5) {
+            border-top-color: var(--accent);
+        }
+
+        .service-card:nth-child(6) {
+            border-top-color: var(--secondary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Case Study Section */
+        .case-study {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .case-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .case-text h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .case-text p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .case-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .metric-box {
+            background: linear-gradient(135deg, rgba(233, 30, 99, 0.05), rgba(107, 63, 160, 0.05));
+            padding: 2rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 2px;
+        }
+
+        .metric-box:nth-child(2) {
+            border-left-color: var(--secondary);
+        }
+
+        .metric-box:nth-child(3) {
+            border-left-color: var(--secondary);
+        }
+
+        .metric-box:nth-child(4) {
+            border-left-color: var(--accent);
+        }
+
+        .metric-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            padding: 5rem 5%;
+            background: var(--light);
+        }
+
+        .why-choose-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .differentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .differential-card {
+            background: var(--white);
+            padding: 2rem;
+            border-top: 4px solid var(--accent);
+            border-radius: 2px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .differential-card:nth-child(2) {
+            border-top-color: var(--secondary);
+        }
+
+        .differential-card:nth-child(3) {
+            border-top-color: var(--secondary);
+        }
+
+        .differential-card:nth-child(4) {
+            border-top-color: var(--accent);
+        }
+
+        .differential-card:nth-child(5) {
+            border-top-color: var(--accent);
+        }
+
+        .differential-card:nth-child(6) {
+            border-top-color: var(--secondary);
+        }
+
+        .differential-card:nth-child(7) {
+            border-top-color: var(--secondary);
+        }
+
+        .differential-card:nth-child(8) {
+            border-top-color: var(--accent);
+        }
+
+        .differential-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .differential-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .differential-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .differential-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .btn-primary {
+            background: var(--accent);
+            border: none;
+        }
+
+        .cta-section .btn-primary:hover {
+            background: rgba(233, 30, 99, 0.9);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .footer-section p, .footer-section a {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.8;
+            text-decoration: none;
+            color: var(--white);
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid, .case-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Tabata Borges</a>
+            <ul class="nav-links">
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#case">Case</a></li>
+                <li><a href="#contact" class="cta-button">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Tabata Borges</h1>
+            <p class="hero-subtitle">Especialista em Marketing Digital & Social Media</p>
+            <p class="hero-tagline">Transformando marcas através de estratégia, criatividade e dados. Com 13+ anos de experiência, entrego resultados mensuráveis que impulsionam o crescimento do seu negócio.</p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn-primary">Vamos Conversar</a>
+                <a href="#services" class="btn-secondary">Conhecer Serviços</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>+18,396%</h3>
+                <p>Crescimento de Alcance</p>
+            </div>
+            <div class="stat-item">
+                <h3>611,827</h3>
+                <p>Visualizações de Vídeo</p>
+            </div>
+            <div class="stat-item">
+                <h3>+2,742%</h3>
+                <p>Crescimento de Views</p>
+            </div>
+            <div class="stat-item">
+                <h3>13+</h3>
+                <p>Anos de Experiência</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">Quem Sou Eu</h2>
+        <div class="section-divider"></div>
+        
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Profissional de Marketing Digital</h3>
+                <p>Com <strong>13+ anos de experiência</strong> em design gráfico e marketing digital, sou especialista em transformar marcas através de estratégia, criatividade e dados.</p>
+                
+                <h3>Expertise</h3>
+                <p>Especialista em gestão de redes sociais, tráfego pago, estratégia de conteúdo, design visual e análise de performance. Formação em design gráfico com expertise em comunicação visual.</p>
+                
+                <h3>Aprendizado Contínuo</h3>
+                <p>Cursando Marketing com foco em estratégia digital e comportamento do consumidor. Sempre buscando aplicar as tendências mais recentes do mercado.</p>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-label">📷 Instagram</div>
+                    <div class="contact-value">@tabataborges.mkt</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">💼 LinkedIn</div>
+                    <div class="contact-value">linkedin.com/in/tabataiborges</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">📱 WhatsApp</div>
+                    <div class="contact-value">+55(19) 9730.3049</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">📧 Email</div>
+                    <div class="contact-value">tabataborgesmkt@gmail.com</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <h2 class="section-title">Serviços Especializados</h2>
+            <div class="section-divider"></div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>📊 Gestão de Tráfego Pago</h3>
+                    <p>Estruturo, gerencio e otimizo campanhas de anúncios pagos para alcançar o público certo, aumentar visibilidade e gerar leads, vendas e oportunidades de negócio.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>📱 Social Media</h3>
+                    <p>Gerencio sua presença digital nas redes sociais, criando consistência, fortalecendo relacionamento com o público e aumentando engajamento e reconhecimento da marca.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>🎯 Estratégia e Planejamento</h3>
+                    <p>Defino direcionamentos claros para comunicação e presença digital com base em análise de mercado, público-alvo e objetivos do negócio.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>🎨 Design e Conteúdo Visual</h3>
+                    <p>Desenvolvimento de peças visuais estratégicas e atrativas, alinhadas à identidade da marca. Criação de artes, edição de vídeos e adaptação de conteúdos.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>✍️ Copywriting</h3>
+                    <p>Criação de mensagens persuasivas e estratégicas, capazes de atrair, engajar e conduzir o público à ação. Legendas, copies para vendas e roteiros.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>📈 Análise e Performance</h3>
+                    <p>Monitoramento e interpretação de dados das ações de marketing, identificando oportunidades de melhoria e otimizações estratégicas contínuas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="case-study" id="case">
+        <h2 class="section-title">Case: Woof Gang Bakery & Grooming</h2>
+        <div class="section-divider"></div>
+
+        <div class="case-content">
+            <div class="case-text">
+                <h3>Desafio</h3>
+                <p>Expandir presença digital de marca no mercado americano com orçamento otimizado. Necessidade de crescimento rápido e sustentável em redes sociais com foco em engajamento orgânico e tráfego pago eficiente.</p>
+
+                <h3>Estratégia Implementada</h3>
+                <ul style="margin-left: 1.5rem; color: var(--text-light); line-height: 1.8;">
+                    <li>Foco em conteúdo de vídeo (Reels e short-form content)</li>
+                    <li>Otimização contínua de campanhas pagas (Meta Ads)</li>
+                    <li>Planejamento editorial estratégico e consistente</li>
+                    <li>Análise diária de performance e ajustes rápidos</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 2rem;">Resultados Alcançados</h3>
+                <div class="case-metrics">
+                    <div class="metric-box">
+                        <div class="metric-number">+18,396%</div>
+                        <div class="metric-label">Crescimento de Alcance</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-number">611,827</div>
+                        <div class="metric-label">Visualizações de Vídeo</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-number">+2,742%</div>
+                        <div class="metric-label">Crescimento de Views</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-number">116,160</div>
+                        <div class="metric-label">Pessoas Alcançadas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose">
+        <div class="why-choose-container">
+            <h2 class="section-title">Por Que Escolher Meus Serviços?</h2>
+            <div class="section-divider"></div>
+
+            <div class="differentials-grid">
+                <div class="differential-card">
+                    <div class="differential-icon">⏱️</div>
+                    <h3>13+ Anos de Experiência</h3>
+                    <p>Trajetória consolidada em design gráfico e marketing digital com expertise comprovada.</p>
+                </div>
+
+                <div class="differential-card">
+                    <div class="differential-icon">📈</div>
+                    <h3>Resultados Comprovados</h3>
+                    <p>Crescimento documentado com números impressionantes em múltiplos projetos.</p>
+                </div>
+
+                <div class="differential-card">
+                    <div class="differential-icon">🎯</div>
+                    <h3>Abordagem Estratégica</h3>
+                    <p>Ações baseadas em dados, análise de mercado e objetivos claros do seu negócio.</p>
+                </div>
+
+                <div class="differential-card">
+                    <div class="differential-icon">💬</div>
+                    <h3>Comunicação Clara</h3>
+                    <p>Relatórios detalhados, reuniões estratégicas e acompanhamento transparente.</p>
+                </div>
+
+                <div class="differential-card">
+                    <div class="differential-icon">🔄</div>
+                    <h3>Otimização Contínua</h3>
+                    <p>Monitoramento constante, testes A/B e ajustes para maximizar performance.</p>
+                </div>
+
+                <div class="differential-card">
+                    <div class="differential-icon">🛠️</div>
+                    <h3>Expertise Multifacetada</h3>
+                    <p>Design, copywriting, tráfego pago e análise em uma solução integrada.</p>
+                </div>
+
+                <div class="differential-card">
+                    <div class="differential-icon">🤝</div>
+                    <h3>Parceria Genuína</h3>
+                    <p>Compromisso com seu crescimento. Seu sucesso é meu sucesso.</p>
+                </div>
+
+                <div class="differential-card">
+                    <div class="differential-icon">✨</div>
+                    <h3>Acompanhamento Personalizado</h3>
+                    <p>Estratégias customizadas e flexíveis para cada cliente e suas necessidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <h2>Pronto para Impulsionar Seus Resultados?</h2>
+        <p>Com 13+ anos de experiência em design estratégico aplicado ao marketing digital, posso ajudar sua marca a crescer de forma estratégica e mensurável. Entre em contato para conversarmos!</p>
+        <a href="https://wa.me/5519987303049" class="btn-primary">Fale Comigo no WhatsApp</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>📧 <a href="mailto:tabataborgesmkt@gmail.com">tabataborgesmkt@gmail.com</a></p>
+                <p>📱 <a href="https://wa.me/5519987303049">+55 (19) 9730.3049</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Redes Sociais</h4>
+                <p><a href="https://instagram.com/tabataborges.mkt" target="_blank">Instagram</a></p>
+                <p><a href="https://linkedin.com/in/tabataiborges" target="_blank">LinkedIn</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Serviços</h4>
+                <p><a href="#services">Gestão de Tráfego Pago</a></p>
+                <p><a href="#services">Social Media</a></p>
+                <p><a href="#services">Estratégia Digital</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Tabata Borges. Todos os direitos reservados. | Especialista em Marketing Digital & Social Media</p>
+        </div>
+    </footer>
+</body>
+</html>
