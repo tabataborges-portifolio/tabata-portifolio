@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabata Borges - Prestadora de Serviços de Marketing Digital</title>
+    <title>Tabata Borges - Especialista em Marketing Digital</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -212,6 +212,18 @@
         .stats-container {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .stats-title {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+
+        .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 3rem;
@@ -260,11 +272,7 @@
             margin-bottom: 3rem;
         }
 
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+        .about-text {
             margin-bottom: 3rem;
         }
 
@@ -283,9 +291,18 @@
             margin-bottom: 1rem;
         }
 
+        .about-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            object-fit: cover;
+        }
+
         .contact-info {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
         }
 
@@ -390,6 +407,67 @@
             font-size: 0.95rem;
         }
 
+        /* Deliverables Section */
+        .deliverables {
+            padding: 5rem 5%;
+            background: var(--white);
+        }
+
+        .deliverables-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-deliverables {
+            margin-bottom: 4rem;
+        }
+
+        .deliverables-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .deliverables-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .deliverable-item {
+            padding: 1.5rem;
+            background: var(--light);
+            border-left: 4px solid var(--accent);
+            border-radius: 2px;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .deliverable-item:nth-child(2n) {
+            border-left-color: var(--secondary);
+        }
+
+        .deliverable-check {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .deliverable-item:nth-child(2n) .deliverable-check {
+            color: var(--secondary);
+        }
+
+        .deliverable-text {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
         /* Case Study Section */
         .case-study {
             padding: 5rem 5%;
@@ -398,10 +476,6 @@
         }
 
         .case-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
             margin-top: 3rem;
         }
 
@@ -422,7 +496,7 @@
 
         .case-metrics {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
@@ -461,6 +535,13 @@
             font-size: 0.85rem;
             color: var(--text-light);
             font-weight: 600;
+        }
+
+        .metric-description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-top: 0.5rem;
         }
 
         /* Why Choose Section */
@@ -632,10 +713,6 @@
                 font-size: 2.5rem;
             }
 
-            .about-grid, .case-content {
-                grid-template-columns: 1fr;
-            }
-
             .hero-cta {
                 flex-direction: column;
                 align-items: center;
@@ -652,6 +729,10 @@
             .cta-section h2 {
                 font-size: 2rem;
             }
+
+            .about-image {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -663,6 +744,7 @@
             <ul class="nav-links">
                 <li><a href="#about">Sobre</a></li>
                 <li><a href="#services">Serviços</a></li>
+                <li><a href="#deliverables">Entregáveis</a></li>
                 <li><a href="#case">Case</a></li>
                 <li><a href="#contact" class="cta-button">Contato</a></li>
             </ul>
@@ -673,8 +755,8 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Tabata Borges</h1>
-            <p class="hero-subtitle">Especialista em Marketing Digital & Social Media</p>
-            <p class="hero-tagline">Transformando marcas através de estratégia, criatividade e dados. Com 13+ anos de experiência, entrego resultados mensuráveis que impulsionam o crescimento do seu negócio.</p>
+            <p class="hero-subtitle">Especialista em Marketing Digital, Performance & Conteúdo Estratégico</p>
+            <p class="hero-tagline">Transformando marcas através de estratégia, criatividade e dados. +13 anos unindo design, estratégia e resultados. Entrego resultados mensuráveis que impulsionam o crescimento do seu negócio.</p>
             <div class="hero-cta">
                 <a href="#contact" class="btn-primary">Vamos Conversar</a>
                 <a href="#services" class="btn-secondary">Conhecer Serviços</a>
@@ -685,21 +767,24 @@
     <!-- Stats Section -->
     <section class="stats">
         <div class="stats-container">
-            <div class="stat-item">
-                <h3>+18,396%</h3>
-                <p>Crescimento de Alcance</p>
-            </div>
-            <div class="stat-item">
-                <h3>611,827</h3>
-                <p>Visualizações de Vídeo</p>
-            </div>
-            <div class="stat-item">
-                <h3>+2,742%</h3>
-                <p>Crescimento de Views</p>
-            </div>
-            <div class="stat-item">
-                <h3>13+</h3>
-                <p>Anos de Experiência</p>
+            <h2 class="stats-title">Resultados reais em marketing digital</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>+18,396%</h3>
+                    <p>Crescimento de Alcance</p>
+                </div>
+                <div class="stat-item">
+                    <h3>611,827</h3>
+                    <p>Visualizações de Vídeo</p>
+                </div>
+                <div class="stat-item">
+                    <h3>+2,742%</h3>
+                    <p>Crescimento de Views</p>
+                </div>
+                <div class="stat-item">
+                    <h3>13+</h3>
+                    <p>Anos de Experiência</p>
+                </div>
             </div>
         </div>
     </section>
@@ -709,35 +794,35 @@
         <h2 class="section-title">Quem Sou Eu</h2>
         <div class="section-divider"></div>
         
-        <div class="about-grid">
-            <div class="about-text">
-                <h3>Profissional de Marketing Digital</h3>
-                <p>Com <strong>13+ anos de experiência</strong> em design gráfico e marketing digital, sou especialista em transformar marcas através de estratégia, criatividade e dados.</p>
-                
-                <h3>Expertise</h3>
-                <p>Especialista em gestão de redes sociais, tráfego pago, estratégia de conteúdo, design visual e análise de performance. Formação em design gráfico com expertise em comunicação visual.</p>
-                
-                <h3>Aprendizado Contínuo</h3>
-                <p>Cursando Marketing com foco em estratégia digital e comportamento do consumidor. Sempre buscando aplicar as tendências mais recentes do mercado.</p>
-            </div>
+        <div class="about-text">
+            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663427497719/DhtwZqZTOcyIuhfa.jpg" alt="Tabata Borges" class="about-image">
+            
+            <h3>Profissional de Marketing Digital</h3>
+            <p>Com <strong>13+ anos de experiência em design gráfico aplicado ao marketing digital</strong>, sou especialista em transformar marcas através de estratégia, criatividade e dados.</p>
+            
+            <h3>Expertise</h3>
+            <p>Especialista em gestão de redes sociais, tráfego pago, estratégia de conteúdo, design visual e análise de performance. Formação em design gráfico com expertise em comunicação visual.</p>
+            
+            <h3>Aprendizado Contínuo</h3>
+            <p>Cursando Marketing com foco em estratégia digital e comportamento do consumidor. Sempre buscando aplicar as tendências mais recentes do mercado.</p>
+        </div>
 
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-label">📷 Instagram</div>
-                    <div class="contact-value">@tabataborges.mkt</div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-label">💼 LinkedIn</div>
-                    <div class="contact-value">linkedin.com/in/tabataiborges</div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-label">📱 WhatsApp</div>
-                    <div class="contact-value">+55(19) 9730.3049</div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-label">📧 Email</div>
-                    <div class="contact-value">tabataborgesmkt@gmail.com</div>
-                </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-label">📷 Instagram</div>
+                <div class="contact-value">@tabataborges.mkt</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">💼 LinkedIn</div>
+                <div class="contact-value">linkedin.com/in/tabataiborges</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">📱 WhatsApp</div>
+                <div class="contact-value">+55 (19) 98730.3049</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">📧 Email</div>
+                <div class="contact-value">tabataborgesmkt@gmail.com</div>
             </div>
         </div>
     </section>
@@ -782,9 +867,219 @@
         </div>
     </section>
 
+    <!-- Deliverables Section -->
+    <section class="deliverables" id="deliverables">
+        <div class="deliverables-container">
+            <h2 class="section-title">Entregáveis dos Serviços</h2>
+            <div class="section-divider"></div>
+
+            <!-- Gestão de Tráfego Pago -->
+            <div class="service-deliverables">
+                <h3 class="deliverables-title">📊 Gestão de Tráfego Pago</h3>
+                <div class="deliverables-list">
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Planejamento Estratégico de Campanhas</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Criação e Configuração de Campanhas</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Definição de Público e Segmentações</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Criação de Copies para Anúncios</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Acompanhamento e Otimização Semanal</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Testes A/B de Criativos e Públicos</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Relatório de Desempenho Mensal</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Reunião Estratégica Mensal</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="service-deliverables">
+                <h3 class="deliverables-title">📱 Social Media</h3>
+                <div class="deliverables-list">
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Planejamento de conteúdo mensal</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Criação de calendário editorial</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Publicação e agendamento de posts</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Gestão de stories (conforme pacote)</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Monitoramento básico de interações</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Organização do feed (visual e estratégico)</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Relatório mensal de desempenho</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estratégia e Planejamento -->
+            <div class="service-deliverables">
+                <h3 class="deliverables-title">🎯 Estratégia e Planejamento</h3>
+                <div class="deliverables-list">
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Diagnóstico da presença digital</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Análise de concorrência</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Definição de persona e público-alvo</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Definição de posicionamento</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Definição de tom de voz</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Planejamento estratégico de conteúdo</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Estruturação de funil de marketing</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Plano de ação com direcionamento estratégico</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Reunião de apresentação e alinhamento</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design e Conteúdo Visual -->
+            <div class="service-deliverables">
+                <h3 class="deliverables-title">🎨 Design e Conteúdo Visual</h3>
+                <div class="deliverables-list">
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Criação de artes para feed (posts estáticos e carrosséis)</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Desenvolvimento de identidade visual para redes sociais</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Edição de vídeos para Reels</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Criação de capas e thumbnails</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Adaptação de conteúdos para diferentes formatos</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copywriting -->
+            <div class="service-deliverables">
+                <h3 class="deliverables-title">✍️ Copywriting</h3>
+                <div class="deliverables-list">
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Criação de legendas estratégicas</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Desenvolvimento de copies para vendas</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Roteiros para vídeos (Reels)</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Escrita de textos persuasivos para campanhas</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Definição de CTA (chamada para ação)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Análise e Performance -->
+            <div class="service-deliverables">
+                <h3 class="deliverables-title">📈 Análise e Performance</h3>
+                <div class="deliverables-list">
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Monitoramento de métricas e KPIs</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Análise de desempenho de conteúdos e campanhas</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Identificação de oportunidades de melhoria</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Otimizações estratégicas contínuas</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Relatório mensal detalhado</div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-check">✓</div>
+                        <div class="deliverable-text">Reunião de alinhamento e performance</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Case Study Section -->
     <section class="case-study" id="case">
-        <h2 class="section-title">Case: Woof Gang Bakery & Grooming</h2>
+        <h2 class="section-title">Case: Woof Gang Bakery & Grooming - Sienna</h2>
         <div class="section-divider"></div>
 
         <div class="case-content">
@@ -801,26 +1096,36 @@
                 </ul>
             </div>
 
-            <div>
-                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 2rem;">Resultados Alcançados</h3>
-                <div class="case-metrics">
-                    <div class="metric-box">
-                        <div class="metric-number">+18,396%</div>
-                        <div class="metric-label">Crescimento de Alcance</div>
-                    </div>
-                    <div class="metric-box">
-                        <div class="metric-number">611,827</div>
-                        <div class="metric-label">Visualizações de Vídeo</div>
-                    </div>
-                    <div class="metric-box">
-                        <div class="metric-number">+2,742%</div>
-                        <div class="metric-label">Crescimento de Views</div>
-                    </div>
-                    <div class="metric-box">
-                        <div class="metric-number">116,160</div>
-                        <div class="metric-label">Pessoas Alcançadas</div>
-                    </div>
+            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 2rem; margin-top: 2rem;">Resultados Alcançados</h3>
+            <div class="case-metrics">
+                <div class="metric-box">
+                    <div class="metric-number">+18,396%</div>
+                    <div class="metric-label">Crescimento de Alcance</div>
+                    <div class="metric-description">Alcance expandido de 0 para mais de 116 mil pessoas em 12 meses (instagram)</div>
                 </div>
+                <div class="metric-box">
+                    <div class="metric-number">611,827</div>
+                    <div class="metric-label">Visualizações de Vídeo</div>
+                    <div class="metric-description">Vídeo tornou-se o principal driver para descoberta de marca e engajamento da comunidade</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-number">Instagram +9,8% | Facebook +12%</div>
+                    <div class="metric-label">Crescimento de Seguidores</div>
+                    <div class="metric-description">Crescimento consistente de seguidores</div>
+                </div>
+            </div>
+
+            <div class="case-text" style="margin-top: 2rem;">
+                <h3>Análise Detalhada</h3>
+                <p><strong>Alcance Expandido:</strong> Alcance expandido de zero para 116,160 pessoas em 12 meses através de estratégia de vídeo e otimização contínua de campanhas pagas. Crescimento orgânico sustentável consolidando a presença digital da marca no mercado americano.</p>
+                
+                <p><strong>Crescimento Orgânico:</strong> Expansão sustentável da base de seguidores em ambas as plataformas (Facebook e Instagram) sem dependência exclusiva de mídia paga.</p>
+                
+                <p><strong>Visualizações de Vídeo:</strong> 611,827 visualizações (+2,742%) no Facebook. Vídeo tornou-se o principal driver para descoberta de marca e engajamento da comunidade.</p>
+                
+                <p><strong>Otimização de Performance:</strong> Redução de custo por resultado mantendo qualidade e volume. Crescimento de seguidores: Facebook +12.05%, Instagram +9.89%.</p>
+                
+                <p style="margin-top: 1.5rem; font-style: italic; color: var(--secondary); font-weight: 600;">Resultados alcançados com orçamento otimizado e foco em conteúdo estratégico.</p>
             </div>
         </div>
     </section>
@@ -896,7 +1201,7 @@
             <div class="footer-section">
                 <h4>Contato</h4>
                 <p>📧 <a href="mailto:tabataborgesmkt@gmail.com">tabataborgesmkt@gmail.com</a></p>
-                <p>📱 <a href="https://wa.me/5519987303049">+55 (19) 9730.3049</a></p>
+                <p>📱 <a href="https://wa.me/5519987303049">+55 (19) 98730.3049</a></p>
             </div>
 
             <div class="footer-section">
@@ -914,7 +1219,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Tabata Borges. Todos os direitos reservados. | Especialista em Marketing Digital & Social Media</p>
+            <p>&copy; 2026 Tabata Borges. Todos os direitos reservados. | Especialista em Marketing Digital</p>
         </div>
     </footer>
 </body>
